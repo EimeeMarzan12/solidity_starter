@@ -1,80 +1,63 @@
-# Hello World! in Solidity
+# Smart Contract Conditions Project 
+
+This project is a simple Ethereum smart contract that allows for Ether deposits, withdrawals by the owner, balance verification, and resetting the contract state under certain conditions.
+
+## Description
+
+Smart Contract Conditions Project is a Solidity-based smart contract designed to manage Ether deposits, withdrawals, and state management. 
+
+The contract allows:
+1. Anyone to deposit Ether into the contract.
+2. The owner to withdraw Ether from the contract.
+3. The owner to reset the contract state, but only if the balance is zero.
+4. Validation using require(), assert(), and revert() to enforce correct behaviors and ensure the integrity of the contract's state.
+
+The contract includes basic functionality for interacting with Ether on the Ethereum blockchain, with simple checks to prevent unauthorized actions or errors.
+
+## Getting Started
 
 
-## Install
+### Installing
 
-1. Install [Node.js](https://nodejs.org)
+To set up and run the project, follow these steps:
 
-   Download and install from the official site.
+1. **Clone the repository**:
+2. **Install dependencies**:
+This project uses [Truffle](https://www.trufflesuite.com/truffle) for compiling and deploying the smart contract.
+npm install -g truffle npm install
 
-2. Install [Truffle](https://github.com/trufflesuite/truffle)
+4. **Modify files** (if necessary):
+- Ensure that your `truffle-config.js` is set up for the desired network (e.g., Ganache or a public network).
+- Update the contract or migration files if changes are required for your environment.
 
-   ```bash
-   npm install -g truffle
-   ```
+### Executing Program
+
+1. **Start a local development blockchain (Ganache)**:
+- You can use [Ganache](https://www.trufflesuite.com/ganache) for local Ethereum testing. Start Ganache and note the port (default is `7545`).
+
+2. **Compile the contract**:
+truffle compile
+
+3. **Migrate the contract** (deploy it to the local blockchain):
+truffle migrate --network development
+
+4. **Interact with the contract using Truffle Console**:
+truffle console --network development
+truffle test
 
 
-## Initialize
+## Help
 
-1. Initialize Truffle in your project folder
+To see helpful information or debug errors, use the following command in the Truffle console:
+help
 
-   ```bash
-   truffle init
-   ```
+## Authors
 
-   After initialization, you will find two folders called `contracts` and `migrations`. Contracts go in the `contracts` folder while contract deployment settings go in `migrations`.
+Contributors names and contact info
 
-2. The "Hello World!" contract
+Eimee Suzanne Marzan
 
-   This is an example of a "Hello World!" contract in Solidity. 
-   "HelloWorld.sol" in `contracts` contains the following code:
 
-   ```solidity
-   // SPDX-License-Identifier: MIT
-   // compiler version must be greater than or equal to 0.8.17 and less than 0.9.0
-   pragma solidity ^0.8.17;
-   
-   contract HelloWorld {
-       string public greet = "Hello World!";
-   }   
-   ```
+## License
 
-3. Prepare the migration
-
-   "2_deploy_migration.js" in `migrations` contains the following code:
-
-   ```javascript
-   var HelloWorld = artifacts.require("HelloWorld");
-   module.exports = function(deployer) {
-     deployer.deploy(HelloWorld);
-   }
-   ```
-
-4. Start Truffle console in development mode
-
-   ```bash
-   truffle develop
-   ```
-
-   In the Truffle console, execute
-
-   ```bash
-   compile
-   migrate
-   ```
-   If you want to remigrate existing contracts, run `migrate --reset` instead of simply `migrate`.
-
-5. Test your contract
-
-   In the interactive Truffle console, run the following commands:
-
-   ```javascript
-   let instance = await HelloWorld.deployed()
-   instance.greet()
-   ```
-
-   Then you will see:
-
-   ```bash
-   'Hello World!'
-   ```
+This project is licensed under the MIT License.
